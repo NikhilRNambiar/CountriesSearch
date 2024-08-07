@@ -28,11 +28,11 @@ function Countries() {
     }
 
     const filteredData=country.filter((countries) =>
-        countries.name.common.toLowerCase().includes(searchTerm));
+        countries.name.common.includes(searchTerm));
   return (
     <div>
         <div style={{display:'flex',justifyContent:'center', alignItems:'center',backgroundColor:'#f8f8ff'}}>
-            <input type='text' onChange={handleSearch} value={searchTerm} className='searchBar'/>
+            <input type='text' onChange={handleSearch} value={searchTerm} className='searchBar' placeholder='Search for Countries'/>
         </div>
         <div style={{display:"flex",
             flexWrap:"wrap"
