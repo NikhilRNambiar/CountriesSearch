@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import "./Countries.css"
 
-// function Card({img,imgAlt,name}){
-//     return <div className='countryCard'>
-//         <img src={img} alt={imgAlt} style={{width:"100px", height:"100px"}}/>
-//         <h3>{name}</h3>
-//     </div>
-// }
 const url="https://restcountries.com/v3.1/all";
 function Countries() {
 
     const[country,setCountry]=useState([]);
-    const[searchTerm,setSearchTerm]=useState();
+    const[searchTerm,setSearchTerm]=useState('');
 
     useEffect(()=>{
         const fetchData=async()=>{
@@ -47,7 +41,7 @@ function Countries() {
                 // <Card key={countries.name.common} img={countries.flags.png} imgAlt={countries.name.common} name={countries.name.common}/>
                 <div className='countryCard' key={countries.name.common}>
                     <img src={countries.flags.png} alt={countries.name.common} style={{width:"100px", height:"100px"}}/>
-                    <h3>{countries.name.common}</h3>
+                    <h2>{countries.name.common}</h2>
                 </div>
                 
                 ))}
