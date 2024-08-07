@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import "./Countries.css"
 
-function Card({img,imgAlt,name}){
-    return <div className='countryCard'>
-        <img src={img} alt={imgAlt} style={{width:"100px", height:"100px"}}/>
-        <h3>{name}</h3>
-    </div>
-}
+// function Card({img,imgAlt,name}){
+//     return <div className='countryCard'>
+//         <img src={img} alt={imgAlt} style={{width:"100px", height:"100px"}}/>
+//         <h3>{name}</h3>
+//     </div>
+// }
 const url="https://restcountries.com/v3.1/all";
 function Countries() {
 
@@ -43,7 +43,14 @@ function Countries() {
         <div style={{display:"flex",
             flexWrap:"wrap"
          }}>
-            {(searchTerm?filteredData:country).map((countries)=>(<Card key={countries.name.common} img={countries.flags.png} imgAlt={countries.name.common} name={countries.name.common}/>))}
+            {(searchTerm?filteredData:country).map((countries)=>(
+                // <Card key={countries.name.common} img={countries.flags.png} imgAlt={countries.name.common} name={countries.name.common}/>
+                <div className='countryCard' key={countries.name.common}>
+                    <img src={countries.flags.png} alt={countries.name.common} style={{width:"100px", height:"100px"}}/>
+                    <h3>{countries.name.common}</h3>
+                </div>
+                
+                ))}
         </div>
     </div>
   )
